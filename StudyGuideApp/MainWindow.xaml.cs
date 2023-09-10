@@ -27,7 +27,14 @@ namespace StudyGuideApp
 
         private void beginButton_Click(object sender, RoutedEventArgs e)
         {
+            //object of the sermeter-begin window
+            BeginWindow window = new BeginWindow();
 
+            //displays begin window
+            window.Show();
+
+            //hides current window
+            Close();
         }
 
         //info button
@@ -43,9 +50,11 @@ namespace StudyGuideApp
             Close();
         }
 
+        //exit button
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
-
+            //exits the app
+            Application.Current.Shutdown();
         }
 
 

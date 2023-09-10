@@ -16,3 +16,5 @@ C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF
 C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\obj\Debug\StudyGuideApp.csproj.CoreCompileInputs.cache
 C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\obj\Debug\StudyGuideApp.exe
 C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\obj\Debug\StudyGuideApp.pdb
+C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\obj\Debug\BeginWindow.g.cs
+C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\obj\Debug\BeginWindow.baml

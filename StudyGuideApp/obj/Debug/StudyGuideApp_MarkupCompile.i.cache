@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\App.xaml
-2-1377958143
+4265581660
 
-7-564757749
+9-1120265396
 13-1310406943
-InformationWindow.xaml;MainWindow.xaml;
+BeginWindow.xaml;DashboardWindow.xaml;InformationWindow.xaml;MainWindow.xaml;
 
-True
+False
 
