@@ -24,24 +24,25 @@ namespace StudyGuideApp
             InitializeComponent();
         }
 
-        private void exitButton_Click(object sender, RoutedEventArgs e)
-        {
-            //object of the main window
-            MainWindow window = new MainWindow();
-
-            //displays main window
-            window.Show();
-
-            //hides current window
-            Close();
-        }
-
         private void continueButton_Click(object sender, RoutedEventArgs e)
         {
             //object of the dashboard window
             DashboardWindow window = new DashboardWindow();
 
             //displays dashboard window
+            window.Show();
+
+            //hides current window
+            Close();
+        }
+
+        //return button
+        private void returnButton_Click(object sender, RoutedEventArgs e)
+        {
+            //object of the main window
+            MainWindow window = new MainWindow();
+
+            //displays main window
             window.Show();
 
             //hides current window

@@ -15,36 +15,28 @@ using System.Windows.Shapes;
 namespace StudyGuideApp
 {
     /// <summary>
-    /// Interaction logic for DashboardWindow.xaml
+    /// Interaction logic for ModuleCalendarWindow.xaml
     /// </summary>
-    public partial class DashboardWindow : Window
+    public partial class ModuleCalendarWindow : Window
     {
-        public DashboardWindow()
+        public ModuleCalendarWindow()
         {
             InitializeComponent();
         }
 
-        //add module button
-        private void addButton_Click(object sender, RoutedEventArgs e)
+        private void returnButton_Click(object sender, RoutedEventArgs e)
         {
-            //object of the calendar window
-            ModuleCalendarWindow window = new ModuleCalendarWindow();
+            //object of the dashboard window
+            DashboardWindow window = new DashboardWindow();
 
-            //displays calendar window
+            //displays dashboard window
             window.Show();
 
             //hides current window
             Close();
         }
 
-        //remove module button
-        private void removeButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        //exit button
-        private void exitButton_Click(object sender, RoutedEventArgs e)
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
 
         }

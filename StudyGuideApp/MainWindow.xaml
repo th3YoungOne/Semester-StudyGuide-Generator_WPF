@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudyGuideApp"
         mc:Ignorable="d"
-        Title="Study Guide Pro" Height="435" Width="695">
+        Title="Study Guide Pro" Height="435" Width="695" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <!-- Setting Background-->
         <Grid.Background>

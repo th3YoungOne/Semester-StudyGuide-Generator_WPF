@@ -18,3 +18,7 @@ C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF
 C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\obj\Debug\StudyGuideApp.pdb
 C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\obj\Debug\BeginWindow.g.cs
 C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\obj\Debug\BeginWindow.baml
+C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\obj\Debug\DashboardWindow.g.cs
+C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\obj\Debug\ModuleCalendarWindow.g.cs
+C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\obj\Debug\DashboardWindow.baml
+C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\obj\Debug\ModuleCalendarWindow.baml

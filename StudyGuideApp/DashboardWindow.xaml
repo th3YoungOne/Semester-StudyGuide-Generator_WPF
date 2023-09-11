@@ -5,17 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudyGuideApp"
         mc:Ignorable="d"
-        Title="Modules Dashboard" Height="450" Width="800">
+        Title="Dashboard" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="189*"/>
-            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="381*"/>
+            <ColumnDefinition Width="19*"/>
         </Grid.ColumnDefinitions>
         <!-- Setting Background-->
         <Grid.Background>
             <ImageBrush x:Name="backgroundImg" ImageSource="C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\Images\wp4.png" ></ImageBrush>
         </Grid.Background>
-        <Label x:Name="label_Copy1" Content="SEMESTER INFORMATION" HorizontalAlignment="Left" Margin="66,29,0,0" FontSize="20" FontWeight="Bold" Foreground="White" VerticalAlignment="Top"/>
+        
+        <!--labels, buttons, and textboxes for layout-->
+        <Label x:Name="label_Copy1" Content="SEMESTER INFORMATION" HorizontalAlignment="Left" Margin="66,29,0,0" FontSize="20" FontWeight="Bold" Foreground="White" VerticalAlignment="Top" Height="37" Width="255"/>
         <RichTextBox x:Name="richTextBox" Background="Beige" FontSize="15" FontWeight="Bold" Margin="10,71,378,49">
             <FlowDocument>
                 <Paragraph>
@@ -23,7 +25,7 @@
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <Label x:Name="label_Copy" Content="MODULE INFORMATION" HorizontalAlignment="Left" Margin="463,29,0,0" FontSize="20" FontWeight="Bold" Foreground="White" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" Content="MODULE INFORMATION" HorizontalAlignment="Left" Margin="486,29,0,0" FontSize="20" FontWeight="Bold" Foreground="White" VerticalAlignment="Top" Height="37" Width="240"/>
         <RichTextBox x:Name="richTextBox2" Background="Beige" FontSize="15" FontWeight="Bold" Margin="422,66,10,107" Grid.ColumnSpan="2">
             <FlowDocument>
                 <Paragraph>
@@ -33,6 +35,6 @@
         </RichTextBox>
         <Button x:Name="addButton" Content="ADD" FontSize="20" FontWeight="Light" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="422,354,0,0" VerticalAlignment="Top" Click="addButton_Click" Height="31" Width="104"/>
         <Button x:Name="removeButton" Content="REMOVE" FontSize="20" FontWeight="Light" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="554,354,0,0" VerticalAlignment="Top" Click="removeButton_Click" Height="31" Width="104"/>
-        <Button x:Name="editButton" Content="EDIT" FontSize="20" FontWeight="Light" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="686,354,0,0" VerticalAlignment="Top" Click="editButton_Click" Height="31" Width="104" Grid.ColumnSpan="2"/>
+        <Button x:Name="exitButton" Content="EXIT" FontSize="20" FontWeight="Light" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="686,354,0,0" VerticalAlignment="Top" Click="exitButton_Click" Height="31" Width="104" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
