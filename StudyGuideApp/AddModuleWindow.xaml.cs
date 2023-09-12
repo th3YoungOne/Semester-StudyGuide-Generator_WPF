@@ -15,38 +15,25 @@ using System.Windows.Shapes;
 namespace StudyGuideApp
 {
     /// <summary>
-    /// Interaction logic for DashboardWindow.xaml
+    /// Interaction logic for AddModuleWindow.xaml
     /// </summary>
-    public partial class DashboardWindow : Window
+    public partial class AddModuleWindow : Window
     {
-        public DashboardWindow()
+        public AddModuleWindow()
         {
             InitializeComponent();
         }
 
-        //add module button
-        private void addButton_Click(object sender, RoutedEventArgs e)
+        private void saveButton_Click(object sender, RoutedEventArgs e)
         {
             //object of the calendar window
-            AddModuleWindow window = new AddModuleWindow();
+            DashboardWindow window = new DashboardWindow();
 
             //displays calendar window
             window.Show();
 
             //hides current window
             Close();
-        }
-
-        //remove module button
-        private void removeButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        //exit button
-        private void exitButton_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
