@@ -1,0 +1,6 @@
+C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideLibrary\bin\Debug\StudyGuideLibrary.dll
+C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideLibrary\bin\Debug\StudyGuideLibrary.pdb
+C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideLibrary\obj\Debug\StudyGuideLibrary.csproj.AssemblyReference.cache
+C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideLibrary\obj\Debug\StudyGuideLibrary.csproj.CoreCompileInputs.cache
+C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideLibrary\obj\Debug\StudyGuideLibrary.dll
+C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideLibrary\obj\Debug\StudyGuideLibrary.pdb
