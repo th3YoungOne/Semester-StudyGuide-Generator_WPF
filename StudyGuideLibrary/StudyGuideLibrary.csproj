@@ -42,7 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassMethods.cs" />
+    <Compile Include="Module.cs" />
+    <Compile Include="ModuleCalendar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Semester.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
