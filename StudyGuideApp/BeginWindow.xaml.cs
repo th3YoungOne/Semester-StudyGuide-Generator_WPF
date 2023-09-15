@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using StudyGuideLibrary;
 
 namespace StudyGuideApp
@@ -24,8 +25,10 @@ namespace StudyGuideApp
         {
             InitializeComponent();
         }
-
+        //semester object from dll library
         Semester semInfo = new Semester();
+
+        //continue button
         private void continueButton_Click(object sender, RoutedEventArgs e)
         {
             //checks if number of weeks box is empty
@@ -42,12 +45,27 @@ namespace StudyGuideApp
                 else { semInfo.weeks = Int32.Parse(textBox.Text); }
             }
 
+            //checks if a start date has been selected by the user
             if (!startDate.SelectedDate.HasValue) { MessageBox.Show("Please select a start date for the semseter via the (select a date) tab.", "Unselected Start Date!", MessageBoxButton.OK); }
             else
             {
-                DateTime? selectedDate = startDate.SelectedDate.GetValueOrDefault();
+                //saves the start date to the semester object
+                DataContext= semInfo;
+
+                DateTime? selectedDate = datePicker.SelectedDate;
+
+                semInfo.startDate = selectedDate.Value;
+
+                //calculates and saves the end date of the semester
+                DateTime endDate = selectedDate.addDays
+                semInfo.endDate = selectedDate.Add;
             }
 
+            //creates temporary xml file wil root parent element to save the semester data to
+            XDocument xmlDoc = new XDocument(new XElement("Semester"));
+
+            //saves semester info under the "Semester" root element 
+            XElement semElement = new XElement("SemesterInfo", new XElement("Duration", semInfo.weeks), new XElement("Start Date", semInfo.startDate), new XElement("End Date", semInfo.endDate));
 
             //object of the dashboard window
             DashboardWindow window = new DashboardWindow();
