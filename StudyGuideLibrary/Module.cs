@@ -11,8 +11,8 @@ namespace StudyGuideLibrary
     {
             public string code { get; set; }
             public string name { get; set; }
-            public string credits { get; set; }
-            public string hrsPerWeek { get; set; }
+            public int credits { get; set; }
+            public int classHrsPerWeek { get; set; }
 
     }
 }
