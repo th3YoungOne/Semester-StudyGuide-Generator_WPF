@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
+using StudyGuideLibrary;
 
 namespace StudyGuideApp
 {
@@ -23,6 +25,12 @@ namespace StudyGuideApp
         public DashboardWindow()
         {
             InitializeComponent();
+            //Declare a new XML Document Object
+            XDocument readDoc = XDocument.Load("SemesterData.xml");
+
+            ClassMethods obj = new ClassMethods();
+            Semester semInfo = obj.readSemDoc("SemesterData.xml");
+            richTextBox.AppendText(semInfoDisplay(semInfo));
         }
 
         //add module button
@@ -70,6 +78,11 @@ namespace StudyGuideApp
             {
                 MessageBox.Show($"Error: {ex}","Error!",MessageBoxButton.OK);
             }
+        }
+
+        public string semInfoDisplay(Semester obj)
+        {
+            return $"Semester Duration (Weeks): {obj.weeks}\nStart Date: {obj.startDate.ToShortDateString()}\nEnd Date: {obj.endDate.ToShortDateString()}";
         }
     }
 }

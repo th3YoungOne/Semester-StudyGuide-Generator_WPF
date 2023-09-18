@@ -45,24 +45,28 @@ namespace StudyGuideApp
                 else { semInfo.weeks = Int32.Parse(textBox.Text); }
             }
 
-            DataContext = semInfo;
             DateTime? selectedDate = datePicker.SelectedDate;
+            MessageBox.Show($"Date: {selectedDate}", "Unselected Start Date!", MessageBoxButton.OK);
 
             //checks if a start date has been selected by the user
             if (!selectedDate.HasValue) { MessageBox.Show("Please select a start date for the semseter via the (select a date) tab.", "Unselected Start Date!", MessageBoxButton.OK); }
             else
             {
-                semInfo.startDate = selectedDate.Value;
+                DateTime value = selectedDate.Value;
+                semInfo.startDate = value;
+                MessageBox.Show($"Semester Date Saved! {semInfo.startDate}", "Message", MessageBoxButton.OK);
 
                 //calculates and saves the end date of the semester
-                DateTime endDate = semInfo.startDate.AddDays(semInfo.weeks * 7);
+                semInfo.endDate = semInfo.startDate.AddDays(semInfo.weeks * 7);
             }
 
             //creates temporary xml file wil root parent element to save the semester data to
             XDocument xmlDoc = new XDocument(new XElement("Semester"));
-
+            string startDate, endDate;
+            startDate = semInfo.startDate.ToString("yyyy-MM-dd");
+            endDate = semInfo.endDate.ToString("yyyy-MM-dd");
             //saves semester info under the "Semester" root element 
-            XElement semElement = new XElement("SemesterInfo", new XElement("Duration", semInfo.weeks), new XElement("StartDate", semInfo.startDate), new XElement("EndDate", semInfo.endDate));
+            XElement semElement = new XElement("SemesterInfo", new XElement("Duration", semInfo.weeks), new XElement("StartDate", startDate), new XElement("EndDate", endDate));
 
             //adds the semElement to xml element
             xmlDoc.Root.Add(semElement);

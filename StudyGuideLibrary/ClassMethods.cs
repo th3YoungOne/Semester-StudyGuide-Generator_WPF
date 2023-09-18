@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace StudyGuideLibrary
@@ -19,18 +20,18 @@ namespace StudyGuideLibrary
         //reads from the Semester xml Doc
         public Semester readSemDoc(string docName)
         {
-            //Declare a new XML Document Object
-            XDocument accDoc = XDocument.Load(docName);
+            //reading XML Document Object
+            XDocument readDoc = XDocument.Load(docName);
 
-            var qr = from request in accDoc.Descendants("Semester")
-                     select new Semester
-                     {
-                         weeks = int.Parse(request.Element("Duration").Value),
-                         startDate = DateTime.Parse(request.Element("StartDate").Value),
-                         endDate = DateTime.Parse(request.Element("EndDate").Value)
-                     };
+            //read from xml file
+            var semesterData = readDoc.Descendants("Semester").Select(semester => new Semester
+            {
+                weeks = int.TryParse(semester.Element("SemesterInfo")?.Element("Duration")?.Value, out int duration) ? duration : 0,
+                startDate = DateTime.TryParse(semester.Element("SemesterInfo")?.Element("StartDate")?.Value, out DateTime startDate) ? startDate : DateTime.MinValue,
+                endDate = DateTime.TryParse(semester.Element("SemesterInfo")?.Element("EndDate")?.Value, out DateTime endDate) ? endDate : DateTime.MinValue
+            }).FirstOrDefault();
 
-            return (Semester)qr;
+            return semesterData;
         }
 
         //reads from the Module xml Doc

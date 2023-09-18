@@ -16,10 +16,10 @@
         <Button x:Name="returnButton" Content="RETURN" FontSize="20" FontWeight="Light" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="47,32,0,0" VerticalAlignment="Top" Click="returnButton_Click" Height="31" Width="104"/>
         <Label x:Name="label" Content="Number of Weeks in the Semester:" HorizontalAlignment="Left" Margin="99,166,0,0" FontSize="17" FontWeight="Bold" Foreground="Brown" VerticalAlignment="Top"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="402,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="46" Height="23"/>
-        <Label x:Name="label_Copy" Content="Start Date of the Semester:" HorizontalAlignment="Left" Margin="160,204,0,0" FontSize="17" FontWeight="Bold" Foreground="Brown" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" Content="Start Date of the Semester:" HorizontalAlignment="Left" Margin="155,200,0,0" FontSize="17" FontWeight="Bold" Foreground="Brown" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy1" Content="SEMESTER INFORMATION" HorizontalAlignment="Center" Margin="0,79,0,0" FontSize="20" FontWeight="Bold" Foreground="RosyBrown" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy2" Content="fill in the fields" HorizontalAlignment="Center" Margin="0,116,0,0" FontSize="15" FontWeight="Normal" Foreground="RosyBrown" VerticalAlignment="Top"/>
-        <Button x:Name="exitButton_Copy" Content="CONTINUE" FontSize="20" FontWeight="Light" Foreground="Brown" Background="Wheat" HorizontalAlignment="Center" Margin="0,242,0,0" VerticalAlignment="Top" Click="continueButton_Click" Height="31" Width="133"/>
-        <DatePicker x:Name="datePicker" SelectedDate="{Binding startDate, Mode=TwoWay}" Margin="402,209,119,70"></DatePicker>
+        <Button x:Name="exitButton_Copy" Content="CONTINUE" FontSize="20" FontWeight="Light" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="193,238,0,0" VerticalAlignment="Top" Click="continueButton_Click" Height="31" Width="133"/>
+        <DatePicker Name="datePicker" Margin="386,204,125,124"></DatePicker>
     </Grid>
 </Window>

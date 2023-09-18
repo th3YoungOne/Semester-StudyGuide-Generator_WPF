@@ -18,7 +18,7 @@
         
         <!--labels, buttons, and textboxes for layout-->
         <Label x:Name="label_Copy1" Content="SEMESTER INFORMATION" HorizontalAlignment="Left" Margin="66,29,0,0" FontSize="20" FontWeight="Bold" Foreground="White" VerticalAlignment="Top" Height="37" Width="255"/>
-        <RichTextBox x:Name="richTextBox" Background="Beige" FontSize="15" FontWeight="Bold" Margin="10,71,378,49">
+        <RichTextBox x:Name="richTextBox" Background="Beige" FontSize="15" FontWeight="Bold" Margin="7,101,381,142">
             <FlowDocument>
                 <Paragraph>
                     <Run Text=""/>
