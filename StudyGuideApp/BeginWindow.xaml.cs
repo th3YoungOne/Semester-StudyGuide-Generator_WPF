@@ -46,7 +46,6 @@ namespace StudyGuideApp
             }
 
             DateTime? selectedDate = datePicker.SelectedDate;
-            MessageBox.Show($"Date: {selectedDate}", "Unselected Start Date!", MessageBoxButton.OK);
 
             //checks if a start date has been selected by the user
             if (!selectedDate.HasValue) { MessageBox.Show("Please select a start date for the semseter via the (select a date) tab.", "Unselected Start Date!", MessageBoxButton.OK); }
@@ -54,7 +53,6 @@ namespace StudyGuideApp
             {
                 DateTime value = selectedDate.Value;
                 semInfo.startDate = value;
-                MessageBox.Show($"Semester Date Saved! {semInfo.startDate}", "Message", MessageBoxButton.OK);
 
                 //calculates and saves the end date of the semester
                 semInfo.endDate = semInfo.startDate.AddDays(semInfo.weeks * 7);

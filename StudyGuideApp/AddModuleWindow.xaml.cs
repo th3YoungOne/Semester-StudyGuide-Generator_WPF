@@ -49,7 +49,7 @@ namespace StudyGuideApp
             {
                 XDocument doc = XDocument.Load(FileName);
 
-                XElement newMod = new XElement("ModuleInfo", new XAttribute("ID", Guid.NewGuid()), new XElement("Code", module.code), new XElement("Name", module.name), new XElement("Credits", module.credits), new XElement("HoursPerWeek", module.classHrsPerWeek));
+                XElement newMod = new XElement("ModuleInfo", new XElement("Code", module.code), new XElement("Name", module.name), new XElement("Credits", module.credits), new XElement("HoursPerWeek", module.classHrsPerWeek));
                 doc.Root?.Add(newMod);
                 doc.Save(FileName);
             }
@@ -59,7 +59,7 @@ namespace StudyGuideApp
                 XDocument xmlDoc = new XDocument(new XElement("Module"));
 
                 //saves module info under the "Semester" root element 
-                XElement firstMod = new XElement("ModuleInfo", new XAttribute("ID", Guid.NewGuid()), new XElement("Code", module.code), new XElement("Name", module.name), new XElement("Credits", module.credits), new XElement("HoursPerWeek", module.classHrsPerWeek));
+                XElement firstMod = new XElement("ModuleInfo", new XElement("Code", module.code), new XElement("Name", module.name), new XElement("Credits", module.credits), new XElement("HoursPerWeek", module.classHrsPerWeek));
 
                 //adds the modElement to xml element
                 xmlDoc.Root?.Add(firstMod);

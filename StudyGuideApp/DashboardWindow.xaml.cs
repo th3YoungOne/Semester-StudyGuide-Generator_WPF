@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -28,9 +29,26 @@ namespace StudyGuideApp
             //Declare a new XML Document Object
             XDocument readDoc = XDocument.Load("SemesterData.xml");
 
+            //fills the semester textbox
             ClassMethods obj = new ClassMethods();
             Semester semInfo = obj.readSemDoc("SemesterData.xml");
             richTextBox.AppendText(semInfoDisplay(semInfo));
+
+            //fills the module datagrid
+            string fileName = "ModuleData.xml";
+            if (File.Exists(fileName))
+            {
+                try
+                {
+                    ObservableCollection<Module> modules = obj.readModDoc("ModuleData.xml");
+                    DataContext = this;
+                    moduleDataGrid.ItemsSource = modules;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex}", "Error Occured!", MessageBoxButton.OK);
+                }
+            }
         }
 
         //add module button
