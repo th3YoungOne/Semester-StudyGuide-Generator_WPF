@@ -46,15 +46,16 @@ namespace StudyGuideApp
                     ObservableCollection<Module> modules = new ObservableCollection<Module>();
 
                     //Declare a new XML Document Object
-
-                    foreach (var modElement in readModDoc.Descendants("Module"))
+                    var modElements = readModDoc.Descendants("ModuleInfo").ToList();
+                    MessageBox.Show($"module list length: {modElements.Count}");
+                    foreach (var modElement in readModDoc.Descendants("ModuleInfo"))
                     {
                         Module module = new Module
                         {
-                            code = modElement.Element("ModuleInfo")?.Element("Code")?.Value,
-                            name = modElement.Element("ModuleInfo")?.Element("Name")?.Value,
-                            credits = int.TryParse(modElement.Element("ModuleInfo")?.Element("Credits")?.Value, out int credits) ? credits : 0,
-                            classHrsPerWeek = int.TryParse(modElement.Element("ModuleInfo")?.Element("HoursPerWeek")?.Value, out int classHrsPerWeek) ? classHrsPerWeek : 0,
+                            code = modElement.Element("Code")?.Value,
+                            name = modElement.Element("Name")?.Value,
+                            credits = int.TryParse(modElement.Element("Credits")?.Value, out int credits) ? credits : 0,
+                            classHrsPerWeek = int.TryParse(modElement.Element("HoursPerWeek")?.Value, out int classHrsPerWeek) ? classHrsPerWeek : 0,
                         };
                         modules.Add(module);
                         MessageBox.Show($"Module Name: {module.name}");
@@ -71,6 +72,10 @@ namespace StudyGuideApp
                 {
                     MessageBox.Show($"Error: {ex}", "Error Occured!", MessageBoxButton.OK);
                 }
+            }
+            else
+            {
+                MessageBox.Show("XML file not found.", "File Not Found", MessageBoxButton.OK);
             }
         }
 
@@ -128,6 +133,8 @@ namespace StudyGuideApp
 
         private void moduleDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Module selectedMod = (Module) moduleDataGrid.SelectedItem;
+            MessageBox.Show($"Selected Module Code: {selectedMod.code}\nSelected Module Name: {selectedMod.name}");
             //ModuleCalendarWindow window = new ModuleCalendarWindow();
 
             ////displays calendar window
