@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Module>
+  <ModuleInfo>
+    <Code>apro123</Code>
+    <Name>prog,ra,,imng</Name>
+    <Credits>14</Credits>
+    <HoursPerWeek>4</HoursPerWeek>
+  </ModuleInfo>
+  <ModuleInfo>
+    <Code>cldf1231</Code>
+    <Name>cloud</Name>
+    <Credits>12</Credits>
+    <HoursPerWeek>1</HoursPerWeek>
+  </ModuleInfo>
+</Module>

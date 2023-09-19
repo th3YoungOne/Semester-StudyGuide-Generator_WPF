@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Xml.Linq;
 
@@ -35,7 +36,7 @@ namespace StudyGuideApp
                     {
                         module.credits= numCreds;
                         int numHrsWeek;
-                        if (!int.TryParse(textBox3.Text, out numHrsWeek)) { MessageBox.Show("You must enter the number of weeks for the module to proceed.", "No Module Weeks Entered!", MessageBoxButton.OK); }
+                        if (!int.TryParse(textBox4.Text, out numHrsWeek)) { MessageBox.Show("You must enter the number of weeks for the module to proceed.", "No Module Weeks Entered!", MessageBoxButton.OK); }
                         else
                         {
                             module.classHrsPerWeek= numHrsWeek;
@@ -44,13 +45,15 @@ namespace StudyGuideApp
                 }
             }
             //@"C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\bin\Debug"
-            string FileName = "ModuleInfo.xml";
+            string FileName = "ModuleData.xml";
             if (File.Exists(FileName))
             {
                 XDocument doc = XDocument.Load(FileName);
 
                 XElement newMod = new XElement("ModuleInfo", new XElement("Code", module.code), new XElement("Name", module.name), new XElement("Credits", module.credits), new XElement("HoursPerWeek", module.classHrsPerWeek));
-                doc.Root?.Add(newMod);
+                
+                var parentElement = doc.Descendants("Module").First();
+                parentElement.Add(newMod);
                 doc.Save(FileName);
             }
             else

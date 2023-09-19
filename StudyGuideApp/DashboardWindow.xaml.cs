@@ -57,6 +57,7 @@ namespace StudyGuideApp
                             classHrsPerWeek = int.TryParse(modElement.Element("ModuleInfo")?.Element("HoursPerWeek")?.Value, out int classHrsPerWeek) ? classHrsPerWeek : 0,
                         };
                         modules.Add(module);
+                        MessageBox.Show($"Module Name: {module.name}");
                     }
 
                     this.ViewModel = new viewModel

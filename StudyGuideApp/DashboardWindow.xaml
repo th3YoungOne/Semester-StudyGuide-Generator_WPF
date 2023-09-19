@@ -18,7 +18,7 @@
         
         <!--labels, buttons, and textboxes for layout-->
         <Label x:Name="label_Copy1" Content="SEMESTER INFORMATION" HorizontalAlignment="Left" Margin="66,29,0,0" FontSize="20" FontWeight="Bold" Foreground="White" VerticalAlignment="Top" Height="37" Width="255"/>
-        <RichTextBox x:Name="richTextBox" Background="Beige" FontSize="15" FontWeight="Bold" Margin="7,101,381,142">
+        <RichTextBox x:Name="richTextBox" Background="Beige" FontSize="15" FontWeight="Bold" Margin="0,122,423,121">
             <FlowDocument>
                 <Paragraph>
                     <Run Text=""/>
@@ -27,7 +27,7 @@
             <!--textbox for semester info-->
         </RichTextBox>
         <Label x:Name="label_Copy" Content="MODULE INFORMATION" HorizontalAlignment="Left" Margin="486,29,0,0" FontSize="20" FontWeight="Bold" Foreground="White" VerticalAlignment="Top" Height="37" Width="240"/>
-        <RichTextBox x:Name="richTextBox2" Background="Beige" FontSize="15" FontWeight="Bold" Margin="404,71,0,116" Grid.ColumnSpan="2">
+        <RichTextBox x:Name="richTextBox2" Background="Beige" FontSize="15" FontWeight="Bold" Margin="369,86,10,100" Grid.ColumnSpan="2">
             <FlowDocument>
                 <Paragraph>
                     <Run Text=""/>
@@ -39,7 +39,7 @@
         <Button x:Name="exitButton" Content="EXIT" FontSize="20" FontWeight="Light" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="686,354,0,0" VerticalAlignment="Top" Click="exitButton_Click" Height="31" Width="104" Grid.ColumnSpan="2"/>
 
         <!--datagrid view for module info-->
-        <DataGrid x:Name="moduleDataGrid" ItemsSource="{Binding moduleItems}" IsReadOnly="True" AutoGenerateColumns="False" Margin="404,88,0,129" Grid.ColumnSpan="2" SelectedIndex="0" SelectionChanged="moduleDataGrid_SelectionChanged">
+        <DataGrid x:Name="moduleDataGrid" ItemsSource="{Binding moduleItems}" IsReadOnly="True" AutoGenerateColumns="False" Margin="381,122,19,136" Grid.ColumnSpan="2" SelectedIndex="0" SelectionChanged="moduleDataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Module Code" Binding="{Binding code}" />
                 <DataGridTextColumn Header="Module Name" Binding="{Binding name}" />
