@@ -15,30 +15,24 @@
         </Grid.Background>
 
         <Viewbox Margin="226,0,225,0">
-            <Calendar Background="RosyBrown" Foreground="brown" BorderBrush="Brown">
+            <Calendar x:Name="ModuleCalendar" Background="RosyBrown" Foreground="brown" BorderBrush="Brown">
 
             </Calendar>
         </Viewbox>
 
         <!--calendar design elements-->
         <Button x:Name="returnButton" Content="RETURN TO DASHBOARD" FontSize="17" FontWeight="Light" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Click="returnButton_Click" Height="34" Width="211"/>
-        <RichTextBox x:Name="richTextBox" Background="Beige" FontSize="20" Foreground="Brown" FontWeight="Bold" FontStyle="Italic" Margin="10,63,662,27">
+        <RichTextBox x:Name="ModuleInfoTxtBox" Background="Beige" FontSize="15" Foreground="Brown" FontWeight="Bold" FontStyle="Italic" Margin="10,63,662,27">
             <FlowDocument>
                 <Paragraph>
-                    <Run Text="Module Infomration:"/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
 
-        <RichTextBox x:Name="richTextBox1" FontSize="20" Background="Beige" Foreground="Brown" FontWeight="Bold"  Margin="658,153,67,27">
+        <RichTextBox x:Name="weklyStdHrsTxtBox" FontSize="15" Background="Beige" Foreground="Brown" FontWeight="Bold" FontStyle="Italic" Margin="658,110,10,55">
             <FlowDocument>
-                <Paragraph LineHeight="35">
-                    <Run Text="RichTextBox"/>
-                    <Run Text="RichTextBox"/>
-                    <Run Text="RichTextBox"/>
-                    <Run Text="RichTextBox"/>
-                    <Run Text="RichTextBox"/>
-                    <Run Text="RichTextBox"/>
+                <Paragraph LineHeight="16">
+                       
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>

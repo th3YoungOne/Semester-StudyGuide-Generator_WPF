@@ -24,6 +24,7 @@ namespace StudyGuideApp
     public partial class DashboardWindow : Window
     {
         private readonly viewModel ViewModel;
+        protected static Semester semInfo;
         public DashboardWindow()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace StudyGuideApp
 
             //fills the semester textbox
             ClassMethods obj = new ClassMethods();
-            Semester semInfo = obj.readSemDoc("SemesterData.xml");
+            semInfo = obj.readSemDoc("SemesterData.xml");
             richTextBox.AppendText(semInfoDisplay(semInfo));
 
 
@@ -47,7 +48,6 @@ namespace StudyGuideApp
 
                     //Declare a new XML Document Object
                     var modElements = readModDoc.Descendants("ModuleInfo").ToList();
-                    MessageBox.Show($"module list length: {modElements.Count}");
                     foreach (var modElement in readModDoc.Descendants("ModuleInfo"))
                     {
                         Module module = new Module
@@ -58,7 +58,6 @@ namespace StudyGuideApp
                             classHrsPerWeek = int.TryParse(modElement.Element("HoursPerWeek")?.Value, out int classHrsPerWeek) ? classHrsPerWeek : 0,
                         };
                         modules.Add(module);
-                        MessageBox.Show($"Module Name: {module.name}");
                     }
 
                     this.ViewModel = new viewModel
@@ -133,15 +132,14 @@ namespace StudyGuideApp
 
         private void moduleDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Module selectedMod = (Module) moduleDataGrid.SelectedItem;
-            MessageBox.Show($"Selected Module Code: {selectedMod.code}\nSelected Module Name: {selectedMod.name}");
-            //ModuleCalendarWindow window = new ModuleCalendarWindow();
+            Module selectedMod = (Module)moduleDataGrid.SelectedItem;
+            ModuleCalendarWindow window = new ModuleCalendarWindow(semInfo, selectedMod);
 
-            ////displays calendar window
-            //window.Show();
+            //displays calendar window
+            window.Show();
 
-            ////hides current window
-            //Close();
+            //hides current window
+            Close();
         }
     }
 }

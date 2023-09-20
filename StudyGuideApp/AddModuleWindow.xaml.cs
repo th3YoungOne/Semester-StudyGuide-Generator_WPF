@@ -81,5 +81,17 @@ namespace StudyGuideApp
             //hides current window
             Close();
         }
+
+        private void cancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            //object of the calendar window
+            DashboardWindow window = new DashboardWindow();
+
+            //displays calendar window
+            window.Show();
+
+            //hides current window
+            Close();
+        }
     }
 }
