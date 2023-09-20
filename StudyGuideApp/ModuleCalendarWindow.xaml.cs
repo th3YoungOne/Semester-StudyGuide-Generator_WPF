@@ -21,7 +21,7 @@ namespace StudyGuideApp
     public partial class ModuleCalendarWindow : Window
     {
         private static ClassMethods obj = new ClassMethods();
-        private List<int> weeklyStdHrs= new List<int>();
+        private List<double> weeklyStdHrs= new List<double>();
         public ModuleCalendarWindow(Semester semInfo,Module selectedMod)
         {
             InitializeComponent();
@@ -34,9 +34,9 @@ namespace StudyGuideApp
             ModuleInfoTxtBox.AppendText(displayModInfo(selectedMod));
 
 
-            int weeklyStudyHrs = obj.weeklyHours(selectedMod.credits, semInfo.weeks, selectedMod.classHrsPerWeek);
-
-            for (int x = 0; x < (semInfo.weeks + 1); x++)
+            double weeklyStudyHrs = obj.weeklyHours(selectedMod.credits, semInfo.weeks, selectedMod.classHrsPerWeek);
+            MessageBox.Show($"weekly study hrs: {weeklyStudyHrs}");
+            for (int x = 0; x < semInfo.weeks; x++)
             {
                 weeklyStdHrs.Add(weeklyStudyHrs);
             }
@@ -57,7 +57,7 @@ namespace StudyGuideApp
 
         public string displayModInfo(Module modInfo)
         { 
-            return $"    Module Infomration\n\nCode: {modInfo.code}\nName: {modInfo.name}\nCredits: {modInfo.credits}\nClass Hours per Week: {modInfo.classHrsPerWeek}\nTotal Study Hours: {obj.studyHours(modInfo.credits)}";
+            return $"    Module Infomration\n\nCode: {modInfo.code}\nName: {modInfo.name}\nCredits: {modInfo.credits}\nClass Hours per Week: {modInfo.classHrsPerWeek}\nTotal Study Hours: {obj.totStudyHours(modInfo.credits)}";
         }
 
         public string displayWeeklyHrs()
@@ -66,7 +66,9 @@ namespace StudyGuideApp
             string joint = "  Study Hours Per Week\n";
             foreach (var item in weeklyStdHrs)
             {
-                joint += $"Week ({cnter}): {item}\n";
+                string formatHrs = item.ToString("0.0");
+                string[] hrsSplit = formatHrs.Split('.');
+                joint += $"Week ({cnter}): {hrsSplit[0]}hrs {hrsSplit[1]}min\n";
                 cnter++;
             }
             return joint;

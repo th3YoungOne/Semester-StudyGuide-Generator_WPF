@@ -13,10 +13,14 @@ namespace StudyGuideLibrary
     public class ClassMethods
     {
         //calculates and returns the study hours for the module
-        public int studyHours(int modCredits) { return modCredits * 10; }
+        public int totStudyHours(int modCredits) { return modCredits * 10; }
         //calculates and returns the study hours required by the user weekly
-        public int weeklyHours(int studyHrs, int numWeeks, int classHrs) { return (int)((studyHrs / numWeeks) - classHrs); }
-
+        public double weeklyHours(int credits, int numWeeks, int classHrs) 
+        {
+            int totHrs = credits * 10;
+            int totClassHrs = classHrs * numWeeks;
+            return (totHrs - totClassHrs) / numWeeks;
+        }
 
         //reads from the Semester xml Doc
         public Semester readSemDoc(string docName)

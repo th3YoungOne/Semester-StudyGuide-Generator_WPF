@@ -47,6 +47,6 @@
                 <DataGridTextColumn Header="Class Hours Per Week" Binding="{Binding classHrsPerWeek}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Label x:Name="label_Copy2" Content="Select a saved Module to View its Details" HorizontalAlignment="Left" Margin="381,85,0,0" FontSize="15" FontWeight="Bold" Foreground="Brown" VerticalAlignment="Top" Height="37" Width="371"/>
+        <Label x:Name="label_Copy2" Content="Select a saved Module to View its Details" HorizontalAlignment="Left" Margin="381,101,0,0" FontSize="15" FontWeight="Bold" Foreground="Brown" VerticalAlignment="Top" Height="37" Width="371"/>
     </Grid>
 </Window>
