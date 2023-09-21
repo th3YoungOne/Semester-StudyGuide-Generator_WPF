@@ -61,7 +61,7 @@ namespace StudyGuideApp
                 //creates temporary xml file wil root parent element to save the module data to
                 XDocument xmlDoc = new XDocument(new XElement("Module"));
 
-                //saves module info under the "Semester" root element 
+                //saves module info under the "Module" root element 
                 XElement firstMod = new XElement("ModuleInfo", new XElement("Code", module.code), new XElement("Name", module.name), new XElement("Credits", module.credits), new XElement("HoursPerWeek", module.classHrsPerWeek));
 
                 //adds the modElement to xml element

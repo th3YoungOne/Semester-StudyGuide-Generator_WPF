@@ -15,26 +15,29 @@
         </Grid.Background>
 
         <Viewbox Margin="226,0,225,0">
-            <Calendar x:Name="ModuleCalendar" Background="RosyBrown" Foreground="brown" BorderBrush="Brown">
+            <Calendar x:Name="ModuleCalendar" Background="RosyBrown" SelectedDatesChanged="ModuleCalendar_SelectedDatesChanged" Foreground="brown" BorderBrush="Brown">
 
             </Calendar>
         </Viewbox>
 
         <!--calendar design elements-->
         <Button x:Name="returnButton" Content="RETURN TO DASHBOARD" FontSize="17" FontWeight="Light" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Click="returnButton_Click" Height="34" Width="211"/>
-        <RichTextBox x:Name="ModuleInfoTxtBox" Background="Beige" FontSize="15" Foreground="Brown" FontWeight="Bold" FontStyle="Italic" Margin="10,63,662,27">
+        <RichTextBox x:Name="ModuleInfoTxtBox" Background="Beige" FontSize="15" Foreground="Brown" FontWeight="Bold" FontStyle="Italic" Margin="30,53,643,37">
             <FlowDocument>
                 <Paragraph>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
 
-        <RichTextBox x:Name="weklyStdHrsTxtBox" FontSize="15" Background="Beige" Foreground="Brown" FontWeight="Bold" FontStyle="Italic" Margin="658,110,10,55">
+        <RichTextBox x:Name="weklyStdHrsTxtBox" FontSize="15" Background="Beige" Foreground="Brown" FontWeight="Bold" FontStyle="Italic" Margin="644,114,23,50">
             <FlowDocument>
                 <Paragraph LineHeight="16">
-                       
+
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
+        <Button x:Name="datesStudiedButton" Content="DAYS STUDIED LIST" FontSize="17" FontWeight="Light" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="670,31,0,0" VerticalAlignment="Top" Click= "datesStudiedButton_Click" Height="34" Width="164"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="670,73,0,0" TextWrapping="Wrap" FontSize="15" Visibility="Hidden" VerticalAlignment="Top" Width="164" Height="273"/>
+        <Button x:Name="closeStudiedButton" Content="CLOSE STUDY LIST" FontSize="17" FontWeight="Light" Visibility="Hidden" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="670,346,0,0" VerticalAlignment="Top" Click="closeStudiedButton_Click" Height="34" Width="164"/>
     </Grid>
 </Window>

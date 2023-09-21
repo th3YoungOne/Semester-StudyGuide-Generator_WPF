@@ -15,10 +15,10 @@ namespace StudyGuideLibrary
         //calculates and returns the study hours for the module
         public int totStudyHours(int modCredits) { return modCredits * 10; }
         //calculates and returns the study hours required by the user weekly
-        public double weeklyHours(int credits, int numWeeks, int classHrs) 
+        public double weeklyHours(double credits, double numWeeks, double classHrs) 
         {
-            int totHrs = credits * 10;
-            int totClassHrs = classHrs * numWeeks;
+            double totHrs = credits * 10;
+            double totClassHrs = classHrs * numWeeks;
             return (totHrs - totClassHrs) / numWeeks;
         }
 

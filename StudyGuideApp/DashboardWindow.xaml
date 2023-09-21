@@ -18,7 +18,7 @@
 
         <!--labels, buttons, and textboxes for layout-->
         <Label x:Name="label_Copy1" Content="SEMESTER INFORMATION" HorizontalAlignment="Left" Margin="66,29,0,0" FontSize="20" FontWeight="Bold" Foreground="White" VerticalAlignment="Top" Height="37" Width="255"/>
-        <RichTextBox x:Name="richTextBox" Background="Beige" FontSize="15" FontWeight="Bold" Margin="0,122,423,121">
+        <RichTextBox x:Name="richTextBox" Background="Beige" Foreground="Brown" FontSize="18" FontWeight="Bold" Margin="0,122,423,153">
             <FlowDocument>
                 <Paragraph>
                     <Run Text=""/>
@@ -34,9 +34,8 @@
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <Button x:Name="addButton" Content="ADD" FontSize="20" FontWeight="Light" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="422,354,0,0" VerticalAlignment="Top" Click="addButton_Click" Height="31" Width="104"/>
-        <Button x:Name="removeButton" Content="DELETE" FontSize="20" FontWeight="Light" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="544,354,0,0" VerticalAlignment="Top" Click="removeButton_Click" Height="31" Width="124"/>
-        <Button x:Name="exitButton" Content="EXIT" FontSize="20" FontWeight="Light" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="686,354,0,0" VerticalAlignment="Top" Click="exitButton_Click" Height="31" Width="104" Grid.ColumnSpan="2"/>
+        <Button x:Name="addButton" Content="ADD" FontSize="20" FontWeight="Light" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="369,346,0,0" VerticalAlignment="Top" Click="addButton_Click" Height="31" Width="104"/>
+        <Button x:Name="exitButton" Content="EXIT" FontSize="20" FontWeight="Light" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="686,346,0,0" VerticalAlignment="Top" Click="exitButton_Click" Height="31" Width="104" Grid.ColumnSpan="2"/>
 
         <!--datagrid view for module info-->
         <DataGrid x:Name="moduleDataGrid" ItemsSource="{Binding moduleItems}" IsReadOnly="True" AutoGenerateColumns="False" Margin="381,122,19,136" Grid.ColumnSpan="2" SelectionChanged="moduleDataGrid_SelectionChanged">
@@ -47,6 +46,6 @@
                 <DataGridTextColumn Header="Class Hours Per Week" Binding="{Binding classHrsPerWeek}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Label x:Name="label_Copy2" Content="Select a saved Module to View its Details" HorizontalAlignment="Left" Margin="381,101,0,0" FontSize="15" FontWeight="Bold" Foreground="Brown" VerticalAlignment="Top" Height="37" Width="371"/>
+        <Label x:Name="label_Copy2" Content="Select a saved Module to View its Details" HorizontalAlignment="Left" Margin="381,86,0,0" FontSize="18" FontWeight="Bold" Foreground="Brown" VerticalAlignment="Top" Height="37" Width="371"/>
     </Grid>
 </Window>

@@ -91,43 +91,40 @@ namespace StudyGuideApp
             Close();
         }
 
-        //remove module button
-        private void removeButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         //exit button
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
             //change according to your saved file path!!!
             string folderPath = @"C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\bin\Debug\";
-
-            try
+            MessageBoxResult result = MessageBox.Show("Are you sure you wish to exist the app?", "Exiting Program...", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
             {
-                string[] xmlFiles = Directory.GetFiles(folderPath, "*.xml");
-
-                //deletes all xmlFiles to avoid recursive data user
-                if (xmlFiles.Length > 0)
+                try
                 {
-                    foreach (var item in xmlFiles)
+                    string[] xmlFiles = Directory.GetFiles(folderPath, "*.xml");
+
+                    //deletes all xmlFiles to avoid recursive data user
+                    if (xmlFiles.Length > 0)
                     {
-                        File.Delete(item);
+                        foreach (var item in xmlFiles)
+                        {
+                            File.Delete(item);
+                        }
+                        //exits the app
+                        Application.Current.Shutdown();
                     }
-                    //exits the app
-                    Application.Current.Shutdown();
+                    else { Application.Current.Shutdown(); }
                 }
-                else { Application.Current.Shutdown();}
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex}","Error!",MessageBoxButton.OK);
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex}", "Error!", MessageBoxButton.OK);
+                }
             }
         }
 
         public string semInfoDisplay(Semester obj)
         {
-            return $"Semester Duration (Weeks): {obj.weeks}\nStart Date: {obj.startDate.ToShortDateString()}\nEnd Date: {obj.endDate.ToShortDateString()}";
+            return $"Semester Duration: {obj.weeks} weeks\nStart Date: {obj.startDate.ToShortDateString()}\nEnd Date: {obj.endDate.ToShortDateString()}";
         }
 
         private void moduleDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
