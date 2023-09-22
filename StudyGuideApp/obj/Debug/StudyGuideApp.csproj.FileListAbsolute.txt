@@ -24,6 +24,6 @@ C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF
 C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\obj\Debug\ModuleCalendarWindow.baml
 C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\obj\Debug\AddModuleWindow.g.cs
 C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\obj\Debug\AddModuleWindow.baml
-C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\bin\Debug\StudyGuideLibrary.dll
-C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\bin\Debug\StudyGuideLibrary.pdb
 C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\obj\Debug\StudyGuideApp.csproj.CopyComplete
+C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\bin\Debug\StudyGuideDLL.dll
+C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\bin\Debug\StudyGuideDLL.pdb

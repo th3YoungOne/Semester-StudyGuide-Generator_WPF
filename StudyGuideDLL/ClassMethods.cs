@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace StudyGuideLibrary
+namespace StudyGuideDLL
 {
     //class that contains all methods
     public class ClassMethods
@@ -15,7 +13,7 @@ namespace StudyGuideLibrary
         //calculates and returns the study hours for the module
         public int totStudyHours(int modCredits) { return modCredits * 10; }
         //calculates and returns the study hours required by the user weekly
-        public double weeklyHours(double credits, double numWeeks, double classHrs) 
+        public double weeklyHours(double credits, double numWeeks, double classHrs)
         {
             double totHrs = credits * 10;
             double totClassHrs = classHrs * numWeeks;

@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Xml.Linq;
+using StudyGuideDLL;
 
 namespace StudyGuideApp
 {
@@ -19,7 +20,7 @@ namespace StudyGuideApp
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
             //obj of the module class
-            StudyGuideLibrary.Module module = new StudyGuideLibrary.Module();   
+            StudyGuideDLL.Module module = new StudyGuideDLL.Module();   
 
             //checks if module code is entered
             if (string.IsNullOrEmpty(textBox.Text)) { MessageBox.Show("You must enter a module code to proceed.", "No Module Code Entered!", MessageBoxButton.OK); }

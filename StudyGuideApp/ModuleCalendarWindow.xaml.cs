@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xml.Linq;
 using Microsoft.VisualBasic;
-using StudyGuideLibrary;
+using StudyGuideDLL;
 
 namespace StudyGuideApp
 {
@@ -48,17 +48,23 @@ namespace StudyGuideApp
                 XElement moduleElement = readModDoc.Root.Elements($"{modObj.code}_info").FirstOrDefault();
                 if (moduleElement != null)
                 {
-                    var callElements = readModDoc.Descendants($"{selectedMod.code}_info").ToList();
-                    int cnt = 1;
-                    foreach (var calElement in callElements)
+                    foreach (XElement callElement in moduleElement.Elements())
                     {
-                        MessageBox.Show($"number {cnt}");
-                        ModuleCalendar date_hours = new ModuleCalendar
+                        if(callElement.Name == "Date")
                         {
-                            studyDate = DateTime.TryParse(calElement.Element("Date")?.Value, out DateTime startDate) ? startDate : DateTime.MinValue,
-                            hoursStudied = int.TryParse(calElement.Element("Hours")?.Value, out int credits) ? credits : 0,
-                        };
-                        hrsStudied.Add(date_hours);
+                            string dateStr = callElement.Value;
+                            DateTime date = DateTime.Parse(dateStr);
+
+                            XElement hrsElement = callElement.NextNode as XElement;
+                            double hours = double.Parse(hrsElement.Value);
+
+                            ModuleCalendar date_hours = new ModuleCalendar
+                            {
+                                studyDate = date,
+                                hoursStudied = hours
+                            };
+                            hrsStudied.Add(date_hours);
+                        }
                     }
                 }
             }

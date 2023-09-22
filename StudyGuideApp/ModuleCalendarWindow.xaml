@@ -39,7 +39,7 @@
             </FlowDocument>
         </RichTextBox>
         <Button x:Name="datesStudiedButton" Content="DAYS STUDIED LIST" FontSize="17" FontWeight="Light" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="658,24,0,0" VerticalAlignment="Top" Click= "datesStudiedButton_Click" Height="34" Width="164"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="658,58,0,0" TextWrapping="Wrap" FontSize="15" Visibility="Hidden"  VerticalAlignment="Top" Width="164" Height="310"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="658,58,0,0" TextWrapping="Wrap" FontSize="15" Visibility="Hidden"  VerticalAlignment="Top" Width="184" Height="310"/>
         <Button x:Name="closeStudiedButton" Content="CLOSE STUDY LIST" FontSize="17" FontWeight="Light" Visibility="Hidden" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="658,373,0,0" VerticalAlignment="Top" Click="closeStudiedButton_Click" Height="34" Width="164"/>
     </Grid>
 </Window>

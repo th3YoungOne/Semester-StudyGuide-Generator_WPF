@@ -36,9 +36,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="StudyGuideLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\StudyGuideLibrary\bin\Debug\StudyGuideLibrary.dll</HintPath>
+    <Reference Include="StudyGuideDLL">
+      <HintPath>..\StudyGuideDLL\bin\Debug\StudyGuideDLL.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

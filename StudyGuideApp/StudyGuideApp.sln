@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyGuideApp", "StudyGuideApp.csproj", "{5986E523-FFA0-40EA-9D07-F8383C5D71D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyGuideDLL", "..\StudyGuideDLL\StudyGuideDLL.csproj", "{1D6DC586-684D-408B-B913-4C5858E5A9B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5986E523-FFA0-40EA-9D07-F8383C5D71D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5986E523-FFA0-40EA-9D07-F8383C5D71D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5986E523-FFA0-40EA-9D07-F8383C5D71D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D6DC586-684D-408B-B913-4C5858E5A9B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D6DC586-684D-408B-B913-4C5858E5A9B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D6DC586-684D-408B-B913-4C5858E5A9B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D6DC586-684D-408B-B913-4C5858E5A9B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

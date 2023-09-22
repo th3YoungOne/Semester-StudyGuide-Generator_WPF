@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudyGuideLibrary
+namespace StudyGuideDLL
 {
     //calendar class for each module --> allows the user to interact with a calendar to save their study information
     public class ModuleCalendar
