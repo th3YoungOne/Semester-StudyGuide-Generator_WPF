@@ -11,12 +11,14 @@
 
         <!-- Setting Background-->
         <Grid.Background>
-            <ImageBrush x:Name="backgroundImg" ImageSource="/StudyGuideApp;component/Images/wp5.jpg" ></ImageBrush>
+            <ImageBrush x:Name="backgroundImg" ImageSource="/StudyGuideApp;component/Images/wp6.jpg" ></ImageBrush>
         </Grid.Background>
 
         <Viewbox Margin="226,0,225,0">
-            <Calendar x:Name="ModuleCalendar" Background="RosyBrown" SelectedDatesChanged="ModuleCalendar_SelectedDatesChanged" Foreground="brown" BorderBrush="Brown">
-
+            <Calendar x:Name="ModuleCalendar" SelectedDatesChanged="ModuleCalendar_SelectedDatesChanged" BorderBrush="#FFDCB8B8" Foreground="#FFFFF2F2">
+                <Calendar.Background>
+                    <ImageBrush/>
+                </Calendar.Background>
             </Calendar>
         </Viewbox>
 
@@ -36,8 +38,8 @@
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <Button x:Name="datesStudiedButton" Content="DAYS STUDIED LIST" FontSize="17" FontWeight="Light" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="670,31,0,0" VerticalAlignment="Top" Click= "datesStudiedButton_Click" Height="34" Width="164"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="670,73,0,0" TextWrapping="Wrap" FontSize="15" Visibility="Hidden" VerticalAlignment="Top" Width="164" Height="273"/>
-        <Button x:Name="closeStudiedButton" Content="CLOSE STUDY LIST" FontSize="17" FontWeight="Light" Visibility="Hidden" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="670,346,0,0" VerticalAlignment="Top" Click="closeStudiedButton_Click" Height="34" Width="164"/>
+        <Button x:Name="datesStudiedButton" Content="DAYS STUDIED LIST" FontSize="17" FontWeight="Light" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="658,24,0,0" VerticalAlignment="Top" Click= "datesStudiedButton_Click" Height="34" Width="164"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="658,58,0,0" TextWrapping="Wrap" FontSize="15" Visibility="Hidden"  VerticalAlignment="Top" Width="164" Height="310"/>
+        <Button x:Name="closeStudiedButton" Content="CLOSE STUDY LIST" FontSize="17" FontWeight="Light" Visibility="Hidden" Foreground="Brown" Background="Wheat" HorizontalAlignment="Left" Margin="658,373,0,0" VerticalAlignment="Top" Click="closeStudiedButton_Click" Height="34" Width="164"/>
     </Grid>
 </Window>

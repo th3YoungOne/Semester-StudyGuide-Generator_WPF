@@ -7,10 +7,7 @@
         mc:Ignorable="d"
         Title="Dashboard" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="381*"/>
-            <ColumnDefinition Width="19*"/>
-        </Grid.ColumnDefinitions>
+
         <!-- Setting Background-->
         <Grid.Background>
             <ImageBrush x:Name="backgroundImg" ImageSource="/StudyGuideApp;component/Images/wp1.jpg" ></ImageBrush>

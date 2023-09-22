@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Configuration;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -44,16 +45,21 @@ namespace StudyGuideApp
             if (File.Exists(FileName))
             {
                 XDocument readModDoc = XDocument.Load(FileName);
-                var calElements = readModDoc.Descendants($"{selectedMod.code}_info").ToList();
-
-                foreach (var calElement in calElements)
+                XElement moduleElement = readModDoc.Root.Elements($"{modObj.code}_info").FirstOrDefault();
+                if (moduleElement != null)
                 {
-                    ModuleCalendar date_hours = new ModuleCalendar
-                    { 
-                        studyDate = DateTime.TryParse(calElement.Element("Date")?.Value, out DateTime startDate) ? startDate : DateTime.MinValue,
-                        hoursStudied = int.TryParse(calElement.Element("Hours")?.Value, out int credits) ? credits : 0,
-                    };
-                    hrsStudied.Add(date_hours);
+                    var callElements = readModDoc.Descendants($"{selectedMod.code}_info").ToList();
+                    int cnt = 1;
+                    foreach (var calElement in callElements)
+                    {
+                        MessageBox.Show($"number {cnt}");
+                        ModuleCalendar date_hours = new ModuleCalendar
+                        {
+                            studyDate = DateTime.TryParse(calElement.Element("Date")?.Value, out DateTime startDate) ? startDate : DateTime.MinValue,
+                            hoursStudied = int.TryParse(calElement.Element("Hours")?.Value, out int credits) ? credits : 0,
+                        };
+                        hrsStudied.Add(date_hours);
+                    }
                 }
             }
 
@@ -158,10 +164,19 @@ namespace StudyGuideApp
                     {
                         XDocument doc = XDocument.Load(FileName);
 
-                        XElement studyLog = new XElement($"{modObj.code}_info", new XElement("Date", selectedDate.ToShortDateString()), new XElement("Hours", hours));
+                        XElement moduleElement = doc.Root.Elements($"{modObj.code}_info").FirstOrDefault();
 
-                        var parentElement = doc.Descendants("Calendar").First();
-                        parentElement.Add(studyLog);
+                        //if the module element doesn't exist in the xml file, it means no dates have been sved yet so it creats a new element
+                        if (moduleElement == null)
+                        {
+                            moduleElement = new XElement($"{modObj.code}_info");
+                            doc.Root.Add(moduleElement);
+                        }
+
+                        XElement dateStudied = new XElement("Date", selectedDate.ToShortDateString());
+                        XElement hoursStudied = new XElement("Hours", hours);
+
+                        moduleElement.Add(dateStudied, hoursStudied);
                         doc.Save(FileName);
                     }
                     catch (Exception ex)
@@ -222,6 +237,7 @@ namespace StudyGuideApp
             textBox.Text= joint;
             textBox.Visibility= Visibility.Visible;
             closeStudiedButton.Visibility = Visibility.Visible;
+            datesStudiedButton.Visibility= Visibility.Hidden;  
         }
 
         private void closeStudiedButton_Click(object sender, RoutedEventArgs e)
@@ -229,6 +245,7 @@ namespace StudyGuideApp
             textBox.Clear();
             textBox.Visibility = Visibility.Hidden;
             closeStudiedButton.Visibility = Visibility.Hidden;
+            datesStudiedButton.Visibility = Visibility.Visible;
         }
     }
 }
