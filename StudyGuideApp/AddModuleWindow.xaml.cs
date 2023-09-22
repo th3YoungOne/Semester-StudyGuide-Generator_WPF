@@ -41,46 +41,46 @@ namespace StudyGuideApp
                         else
                         {
                             module.classHrsPerWeek= numHrsWeek;
+
+                            string FileName = "ModuleData.xml";
+                            if (File.Exists(FileName))
+                            {
+                                XDocument doc = XDocument.Load(FileName);
+
+                                XElement newMod = new XElement("ModuleInfo", new XElement("Code", module.code), new XElement("Name", module.name), new XElement("Credits", module.credits), new XElement("HoursPerWeek", module.classHrsPerWeek));
+
+                                var parentElement = doc.Descendants("Module").First();
+                                parentElement.Add(newMod);
+                                doc.Save(FileName);
+                            }
+                            else
+                            {
+                                //creates temporary xml file wil root parent element to save the module data to
+                                XDocument xmlDoc = new XDocument(new XElement("Module"));
+
+                                //saves module info under the "Module" root element 
+                                XElement firstMod = new XElement("ModuleInfo", new XElement("Code", module.code), new XElement("Name", module.name), new XElement("Credits", module.credits), new XElement("HoursPerWeek", module.classHrsPerWeek));
+
+                                //adds the modElement to xml element
+                                xmlDoc.Root?.Add(firstMod);
+                                //saves the xml doc into a file
+                                xmlDoc.Save("ModuleData.xml");
+                            }
+
+                            MessageBox.Show("Module Information Saved!", "Message", MessageBoxButton.OK);
+
+                            //object of the calendar window
+                            DashboardWindow window = new DashboardWindow();
+
+                            //displays calendar window
+                            window.Show();
+
+                            //hides current window
+                            Close();
                         }
                     }
                 }
             }
-            //@"C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\bin\Debug"
-            string FileName = "ModuleData.xml";
-            if (File.Exists(FileName))
-            {
-                XDocument doc = XDocument.Load(FileName);
-
-                XElement newMod = new XElement("ModuleInfo", new XElement("Code", module.code), new XElement("Name", module.name), new XElement("Credits", module.credits), new XElement("HoursPerWeek", module.classHrsPerWeek));
-                
-                var parentElement = doc.Descendants("Module").First();
-                parentElement.Add(newMod);
-                doc.Save(FileName);
-            }
-            else
-            {
-                //creates temporary xml file wil root parent element to save the module data to
-                XDocument xmlDoc = new XDocument(new XElement("Module"));
-
-                //saves module info under the "Module" root element 
-                XElement firstMod = new XElement("ModuleInfo", new XElement("Code", module.code), new XElement("Name", module.name), new XElement("Credits", module.credits), new XElement("HoursPerWeek", module.classHrsPerWeek));
-
-                //adds the modElement to xml element
-                xmlDoc.Root?.Add(firstMod);
-                //saves the xml doc into a file
-                xmlDoc.Save("ModuleData.xml");
-            }
-
-            MessageBox.Show("Module Information Saved!", "Message", MessageBoxButton.OK);
-
-            //object of the calendar window
-            DashboardWindow window = new DashboardWindow();
-
-            //displays calendar window
-            window.Show();
-
-            //hides current window
-            Close();
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)

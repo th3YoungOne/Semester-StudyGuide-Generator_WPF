@@ -42,45 +42,48 @@ namespace StudyGuideApp
                     MessageBox.Show("Please enter a numerical value for the number of weeks in a semester.", "Invalid Input!", MessageBoxButton.OK);
                 }
                 //saves the number of weeks value entered
-                else { semInfo.weeks = Int32.Parse(textBox.Text); }
+                else 
+                { 
+                    semInfo.weeks = Int32.Parse(textBox.Text);
+
+                    DateTime? selectedDate = datePicker.SelectedDate;
+
+                    //checks if a start date has been selected by the user
+                    if (!selectedDate.HasValue) { MessageBox.Show("Please select a start date for the semseter via the (select a date) tab.", "Unselected Start Date!", MessageBoxButton.OK); }
+                    else
+                    {
+                        DateTime value = selectedDate.Value;
+                        semInfo.startDate = value;
+
+                        //calculates and saves the end date of the semester
+                        semInfo.endDate = semInfo.startDate.AddDays(semInfo.weeks * 7);
+
+                        //creates temporary xml file wil root parent element to save the semester data to
+                        XDocument xmlDoc = new XDocument(new XElement("Semester"));
+                        string startDate, endDate;
+                        startDate = semInfo.startDate.ToString("yyyy-MM-dd");
+                        endDate = semInfo.endDate.ToString("yyyy-MM-dd");
+                        //saves semester info under the "Semester" root element 
+                        XElement semElement = new XElement("SemesterInfo", new XElement("Duration", semInfo.weeks), new XElement("StartDate", startDate), new XElement("EndDate", endDate));
+
+                        //adds the semElement to xml element
+                        xmlDoc.Root.Add(semElement);
+                        //saves the xml doc into a file
+                        xmlDoc.Save("SemesterData.xml");
+
+                        MessageBox.Show("Semester Information Saved!", "Message", MessageBoxButton.OK);
+
+                        //object of the dashboard window
+                        DashboardWindow window = new DashboardWindow();
+
+                        //displays dashboard window
+                        window.Show();
+
+                        //hides current window
+                        Close();
+                    }
+                }
             }
-
-            DateTime? selectedDate = datePicker.SelectedDate;
-
-            //checks if a start date has been selected by the user
-            if (!selectedDate.HasValue) { MessageBox.Show("Please select a start date for the semseter via the (select a date) tab.", "Unselected Start Date!", MessageBoxButton.OK); }
-            else
-            {
-                DateTime value = selectedDate.Value;
-                semInfo.startDate = value;
-
-                //calculates and saves the end date of the semester
-                semInfo.endDate = semInfo.startDate.AddDays(semInfo.weeks * 7);
-            }
-
-            //creates temporary xml file wil root parent element to save the semester data to
-            XDocument xmlDoc = new XDocument(new XElement("Semester"));
-            string startDate, endDate;
-            startDate = semInfo.startDate.ToString("yyyy-MM-dd");
-            endDate = semInfo.endDate.ToString("yyyy-MM-dd");
-            //saves semester info under the "Semester" root element 
-            XElement semElement = new XElement("SemesterInfo", new XElement("Duration", semInfo.weeks), new XElement("StartDate", startDate), new XElement("EndDate", endDate));
-
-            //adds the semElement to xml element
-            xmlDoc.Root.Add(semElement);
-            //saves the xml doc into a file
-            xmlDoc.Save("SemesterData.xml");
-
-            MessageBox.Show("Semester Information Saved!", "Message", MessageBoxButton.OK);
-
-            //object of the dashboard window
-            DashboardWindow window = new DashboardWindow();
-
-            //displays dashboard window
-            window.Show();
-
-            //hides current window
-            Close();
         }
 
         //return button
