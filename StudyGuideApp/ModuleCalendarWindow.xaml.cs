@@ -48,11 +48,12 @@ namespace StudyGuideApp
 
                 foreach (var calElement in calElements)
                 {
-                    Calendar date_hours = new Calendar 
+                    ModuleCalendar date_hours = new ModuleCalendar
                     { 
                         studyDate = DateTime.TryParse(calElement.Element("Date")?.Value, out DateTime startDate) ? startDate : DateTime.MinValue,
                         hoursStudied = int.TryParse(calElement.Element("Hours")?.Value, out int credits) ? credits : 0,
                     };
+                    hrsStudied.Add(date_hours);
                 }
             }
 
@@ -65,6 +66,30 @@ namespace StudyGuideApp
             {
                 weeklyStdHrs.Add(weeklyStudyHours);
             }
+
+            //modifies the weekly hours studied, if there are any previous dates saved by the user that they have studied on
+            int cnter = 0;
+            double totHrs = 0.0;
+            foreach (var item in hrsStudied)
+            {
+                totHrs += item.hoursStudied;
+            }
+
+            while (cnter < weeklyStdHrs.Count && totHrs != 0)
+            {
+                if (weeklyStdHrs[cnter] < totHrs)
+                {
+                    totHrs -= weeklyStdHrs[cnter];
+                    weeklyStdHrs[cnter] = 0;
+                }
+                else
+                {
+                    weeklyStdHrs[cnter] -= totHrs;
+                    totHrs = 0.0;
+                }
+                cnter++;
+            }
+
             weklyStdHrsTxtBox.AppendText(displayWeeklyHrs());
 
             
@@ -91,19 +116,21 @@ namespace StudyGuideApp
             {
                 totHrs += item.hoursStudied;
             }
+
             return $"    Module Infomration\n\nCode: {modObj.code}\nName: {modObj.name}\nCredits: {modObj.credits}\nClass Hours per Week: {modObj.classHrsPerWeek}\nTotal Study Hours: {(obj.totStudyHours(modObj.credits) - totHrs)}";
         }
 
         public string displayWeeklyHrs()
         {
-            weklyStdHrsTxtBox.Document.Blocks.Clear();
             int cnter = 1;
+
+            weklyStdHrsTxtBox.Document.Blocks.Clear();
             string joint = "  Study Hours Per Week\n";
             foreach (var item in weeklyStdHrs)
             {
                 string formatHrs = item.ToString("0.0");
                 string[] hrsSplit = formatHrs.Split('.');
-                joint += $"~ Week ({cnter}): {hrsSplit[0]}hrs {int.Parse(hrsSplit[1]) * 3}min\n";
+                joint += $"~ Week ({cnter}): {hrsSplit[0]}hrs {int.Parse(hrsSplit[1]) * 6}min\n";
                 cnter++;
             }
             return joint;
@@ -122,7 +149,8 @@ namespace StudyGuideApp
                     hoursStudied = hours
                 });
                 ModifyHrs(hours);
-                ///////////////////////////////////////////////////////
+
+
                 string FileName = $"CalendarData.xml";
                 if (File.Exists(FileName))
                 {
@@ -166,7 +194,7 @@ namespace StudyGuideApp
         private void ModifyHrs(double hours)
         {
             int cnter = 0;
-            while (cnter < weeklyStdHrs.Count && hours != 0)
+            while (cnter < weeklyStdHrs.Count && hours != 0.0)
             {
                 if (weeklyStdHrs[cnter] < hours)
                 {

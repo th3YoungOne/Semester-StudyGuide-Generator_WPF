@@ -94,32 +94,41 @@ namespace StudyGuideApp
         //exit button
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
-            //change according to your saved file path!!!
-            string folderPath = @"C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\bin\Debug\";
-            MessageBoxResult result = MessageBox.Show("Are you sure you wish to exist the app?", "Exiting Program...", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
-            {
-                try
-                {
-                    string[] xmlFiles = Directory.GetFiles(folderPath, "*.xml");
+            string[] xmlFiles = { "SemesterData.xml", "ModuleData.xml", "CalendarData.xml" };
 
-                    //deletes all xmlFiles to avoid recursive data user
-                    if (xmlFiles.Length > 0)
-                    {
-                        foreach (var item in xmlFiles)
-                        {
-                            File.Delete(item);
-                        }
-                        //exits the app
-                        Application.Current.Shutdown();
-                    }
-                    else { Application.Current.Shutdown(); }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error: {ex}", "Error!", MessageBoxButton.OK);
-                }
+            for (int i = 0; i < xmlFiles.Length; i++)
+            {
+                if (File.Exists(xmlFiles[i])) { File.Delete(xmlFiles[i]); }
             }
+            //exits the app
+            Application.Current.Shutdown();
+
+            //change according to your saved file path!!!
+            //string folderPath = @"C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\bin\Debug\";
+            //MessageBoxResult result = MessageBox.Show("Are you sure you wish to exist the app?", "Exiting Program...", MessageBoxButton.YesNo);
+            //if (result == MessageBoxResult.Yes)
+            //{
+            //    try
+            //    {
+            //        string[] xmlFiles = Directory.GetFiles(folderPath, "*.xml");
+
+            //        //deletes all xmlFiles to avoid recursive data user
+            //        if (xmlFiles.Length > 0)
+            //        {
+            //            foreach (var item in xmlFiles)
+            //            {
+            //                File.Delete(item);
+            //            }
+            //            //exits the app
+            //            Application.Current.Shutdown();
+            //        }
+            //        else { Application.Current.Shutdown(); }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show($"Error: {ex}", "Error!", MessageBoxButton.OK);
+            //    }
+            //}
         }
 
         public string semInfoDisplay(Semester obj)
