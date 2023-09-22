@@ -13,12 +13,12 @@
         </Grid.ColumnDefinitions>
         <!-- Setting Background-->
         <Grid.Background>
-            <ImageBrush x:Name="backgroundImg" ImageSource="C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\Images\wp4.png" ></ImageBrush>
+            <ImageBrush x:Name="backgroundImg" ImageSource="/StudyGuideApp;component/Images/wp1.jpg" ></ImageBrush>
         </Grid.Background>
 
         <!--labels, buttons, and textboxes for layout-->
         <Label x:Name="label_Copy1" Content="SEMESTER INFORMATION" HorizontalAlignment="Left" Margin="66,29,0,0" FontSize="20" FontWeight="Bold" Foreground="White" VerticalAlignment="Top" Height="37" Width="255"/>
-        <RichTextBox x:Name="richTextBox" Background="Beige" Foreground="Brown" FontSize="18" FontWeight="Bold" Margin="0,122,423,153">
+        <RichTextBox x:Name="richTextBox" Background="Beige" Foreground="Brown" FontSize="18" FontWeight="Bold" Margin="24,130,399,144">
             <FlowDocument>
                 <Paragraph>
                     <Run Text=""/>

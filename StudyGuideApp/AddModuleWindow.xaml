@@ -9,7 +9,7 @@
     <Grid>
         <!-- Setting Background-->
         <Grid.Background>
-            <ImageBrush x:Name="backgroundImg" ImageSource="C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\Images\wp3.jpg" ></ImageBrush>
+            <ImageBrush x:Name="backgroundImg" ImageSource="/StudyGuideApp;component/Images/wp3.jpg" ></ImageBrush>
         </Grid.Background>
 
         <!--design elements-->

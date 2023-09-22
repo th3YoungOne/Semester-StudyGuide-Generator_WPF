@@ -11,7 +11,7 @@
 
         <!-- Setting Background-->
         <Grid.Background>
-            <ImageBrush x:Name="backgroundImg" ImageSource="C:\Users\lab_services_student\Documents\GitHub\Semester-StudyGuide-Generator_WPF\StudyGuideApp\Images\wp5.jpg" ></ImageBrush>
+            <ImageBrush x:Name="backgroundImg" ImageSource="/StudyGuideApp;component/Images/wp5.jpg" ></ImageBrush>
         </Grid.Background>
 
         <Viewbox Margin="226,0,225,0">
