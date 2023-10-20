@@ -1,0 +1,33 @@
+﻿@page
+@model Part3Program.Pages.SemesterModel
+@{
+}
+<h1>Semester Capture Page:</h1>
+
+<form method="post">
+    <!--equivalent of a grid to paste all elements in-->
+    <!--for the semester-->
+    <div class="form-group">
+        <label for="semester">Select Semester:</label>
+
+        <!--equivalent of a combo box-->
+        <select class="form-control" id="semester" name="semester">
+            <option value="Semester 1">Semester 1</option>
+            <option value="Semester 1">Semester 1</option>
+        </select>
+    </div>
+
+    <!--for number of weeks-->
+    <div class="form-group">
+        <label for="weeks">Number of Weeks:</label>
+        <input type="number" class="form-control" id="weeks" name="weeks" />
+    </div>
+
+    <!--for start date-->
+    <div class="form-group">
+        <label for="startDate">Start Date:</label>
+        <input type="date" class= "form-control" id="startDate" name="startDate" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
